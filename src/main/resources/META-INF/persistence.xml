@@ -19,6 +19,12 @@
             <property name="hibernate.format_sql" value="true"/>
             <!-- 쿼리 출력 시 주석(comments)도 함께 출력 -->
             <property name="hibernate.use_sql_comments" value="true"/>
+            <!-- 자동으로 엔티티에 따른 DDL문 생성 -->
+            <!-- create : 해당 테이블 지운후에 다시만듬-->
+            <!-- create-drop : create후 종료시접에 drop-->
+            <!-- update : 변경부분만 반영-->
+            <!-- validate : 엔티티와 테이블이 정상 맵핑되어있는지만 확인한다.-->
+            <property name="hibernate.hbm2ddl.auto"  value="create"/>
         </properties>
     </persistence-unit>
 </persistence>
