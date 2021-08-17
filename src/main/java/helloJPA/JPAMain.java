@@ -1,5 +1,8 @@
 package helloJPA;
 
+import helloJPA.domain.Member;
+import helloJPA.domain.Team;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -13,13 +16,28 @@ public class JPAMain {
         // jpa의 모든 데이터 변경은 트랜잭션안에서 실행해야한다.
         EntityTransaction tx = em.getTransaction();
         tx.begin();
+        try {
+            Team team = new Team();
+            team.setName("teamA");
+            em.persist(team);
 
-        Member member = new Member(2L,"gg");
-        em.persist(member);
+            Member member = new Member();
+            member.setUserName("member1");
+            member.setTeam(team);
+            em.persist(member);
+            // jpa가 join쿼리르 날려서 member와 team을 가져왔다.
+            Member findMember = em.find(Member.class,member.getId());
 
-        tx.commit();
+            Team findTeam = findMember.getTeam();
+            System.out.println("findTeam = " + findTeam.getName());
+            tx.commit();
 
-        em.close();
+        }catch (Exception e){
+            e.printStackTrace();
+            tx.rollback();
+        }finally {
+            em.close();
+        }
         emf.close();
     }
 }

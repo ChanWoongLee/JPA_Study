@@ -2,7 +2,9 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              version="2.1">
     <persistence-unit name="hello">
-        <class>helloJPA.Member</class>
+        <!--<class>helloJPA.domain.TableExample</class>-->
+        <class>helloJPA.domain.Team</class>
+        <class>helloJPA.domain.Member</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
@@ -24,7 +26,7 @@
             <!-- create-drop : create후 종료시접에 drop-->
             <!-- update : 변경부분만 반영-->
             <!-- validate : 엔티티와 테이블이 정상 맵핑되어있는지만 확인한다.-->
-            <property name="hibernate.hbm2ddl.auto"  value="update"/>
+            <property name="hibernate.hbm2ddl.auto"  value="create"/>
         </properties>
     </persistence-unit>
 </persistence>

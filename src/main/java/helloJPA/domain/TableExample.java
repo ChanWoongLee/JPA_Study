@@ -1,4 +1,4 @@
-package helloJPA;
+package helloJPA.domain;
 
 import lombok.*;
 
@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 //@SequenceGenerator(name  = "sequence", sequenceName = "memSeq",initialValue =1, allocationSize = 1)
 // 이런식을 시퀀스를 만들고 sequence 전략에서 선택할수 있다.
-public class Member {
+public class TableExample {
     // 기본키 맵핑
     // 집적할당 @Id
     // 간접할당 @GeneratedValue : strategy = Generation.Identity(데이터베이스에 위임),Auto,Sequence(오라클 시퀀스느낌),Table (키생성 전용 테이블 시퀀스 흉내)
