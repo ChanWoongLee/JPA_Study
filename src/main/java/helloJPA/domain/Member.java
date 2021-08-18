@@ -6,7 +6,6 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Setter
 @Getter
 public class Member {
     @Id @GeneratedValue
@@ -19,4 +18,9 @@ public class Member {
     private Team team;
 
     private String userName;
+
+    private void changeTeam(Team team){
+        this.team = team;
+        team.getMembers().add(this);
+    }
 }
