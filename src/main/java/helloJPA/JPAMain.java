@@ -1,6 +1,7 @@
 package helloJPA;
 
 import helloJPA.domain.Member;
+import helloJPA.domain.Order;
 import helloJPA.domain.Team;
 
 import javax.persistence.EntityManager;
@@ -18,22 +19,23 @@ public class JPAMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            Team team = new Team();
-            team.setName("teamA");
-            em.persist(team);
-
-            Member member = new Member();
-            member.setUserName("member1");
-            member.setTeam(team);
-            em.persist(member);
-
-            em.flush();
-            em.clear();
-
-            // jpa가 join쿼리르 날려서 member와 team을 가져왔다.
-            Member findMember = em.find(Member.class,member.getId());
-            List<Member> members = findMember.getTeam().getMembers();
-            Team findTeam = findMember.getTeam();
+            Order order = new Order();
+//            Team team = new Team();
+//            team.setName("teamA");
+//            em.persist(team);
+//
+//            Member member = new Member();
+//            member.setUserName("member1");
+//            member.setTeam(team);
+//            em.persist(member);
+//
+//            em.flush();
+//            em.clear();
+//
+//            // jpa가 join쿼리르 날려서 member와 team을 가져왔다.
+//            Member findMember = em.find(Member.class,member.getId());
+//            List<Member> members = findMember.getTeam().getMembers();
+//            Team findTeam = findMember.getTeam();
             tx.commit();
 
         }catch (Exception e){
