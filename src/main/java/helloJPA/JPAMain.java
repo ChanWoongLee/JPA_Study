@@ -1,5 +1,6 @@
 package helloJPA;
 
+import helloJPA.domain.Bird;
 import helloJPA.domain.Member;
 import helloJPA.domain.Order;
 import helloJPA.domain.Team;
@@ -19,7 +20,12 @@ public class JPAMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            Order order = new Order();
+            Bird bird = new Bird();
+            bird.setHome("관악구");
+            bird.setWings(4);
+            bird.setAge(14);
+            bird.setName("큰새");
+            em.persist(bird);
 //            Team team = new Team();
 //            team.setName("teamA");
 //            em.persist(team);

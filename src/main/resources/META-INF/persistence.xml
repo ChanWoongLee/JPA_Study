@@ -2,8 +2,9 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              version="2.1">
     <persistence-unit name="hello">
-        <!--<class>helloJPA.domain.TableExample</class>-->
         <class>helloJPA.domain.Team</class>
+        <class>helloJPA.domain.Animal</class>
+        <class>helloJPA.domain.Bird</class>
         <class>helloJPA.domain.Member</class>
         <properties>
             <!-- 필수 속성 -->
