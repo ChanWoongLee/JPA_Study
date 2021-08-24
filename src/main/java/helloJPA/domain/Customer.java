@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,12 +20,20 @@ public class Customer  {
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
 
-    private String name;
+    @Embedded
+    private Period period;
 
-    private String city;
+    @Embedded
+    private Address address;
 
-    private String street;
-
-    private String zipCode;
+//    //기간 위와같이 Period 만들어 놓으면 어디서 활용하지 않을까 ??
+//    private LocalDateTime startDate;
+//    private LocalDateTime endDate;
+//
+//    // 주소
+//    private String name;
+//    private String city;
+//    private String street;
+//    private String zipCode;
 
 }
