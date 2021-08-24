@@ -16,7 +16,7 @@ public class Customer  {
     @Column(name = "MEMBER_ID")
     private Long id;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
 
     private String name;

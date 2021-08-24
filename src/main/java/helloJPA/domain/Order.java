@@ -12,17 +12,17 @@ import java.util.List;
 @Setter
 @Getter
 @Table(name = "ORDERS")
-public class Order {
+public class Order extends BaseEntity{
     @Id
     @GeneratedValue
     @Column(name = "ORDER_ID")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Customer customer;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
     private LocalDateTime orderDate;
