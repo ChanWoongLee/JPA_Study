@@ -15,7 +15,7 @@ public class JPAMain2 {
         EntityManager em = emf.createEntityManager();
         // jpa의 모든 데이터 변경은 트랜잭션안에서 실행해야한다.
         EntityTransaction tx = em.getTransaction();
-        tx.begin();
+         tx.begin();
         try {
             Member member = new Member();
         }catch (Exception e){
