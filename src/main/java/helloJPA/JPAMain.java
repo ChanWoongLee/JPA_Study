@@ -26,7 +26,7 @@ public class JPAMain {
             bird.setAge(14);
             bird.setName("큰새");
             em.persist(bird);
-//            Team team = new Team();
+//            Team team = new Team(); ff
 //            team.setName("teamA");
 //            em.persist(team);
 //
