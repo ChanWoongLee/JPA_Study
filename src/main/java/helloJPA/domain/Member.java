@@ -38,7 +38,7 @@ public class Member extends BaseEntity {
 
 
     private String userName;
-
+    private int age;
     private void changeTeam(Team team) {
         this.team = team;
         team.getMembers().add(this);

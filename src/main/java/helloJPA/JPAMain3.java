@@ -1,6 +1,7 @@
 package helloJPA;
 
 import helloJPA.domain.Member;
+import helloJPA.domain.MemberDTO;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -20,14 +21,21 @@ public class JPAMain3 {
             em.persist(member);
 
             TypedQuery<Member> query1 = em.createQuery("select m from Member m", Member.class);
-            //Query query2 = em.createQuery("select m.username from Member m", Member.class); // 반환 타입 불명확
 
+            List resultList = em.createQuery("select m.username, m.age from Member m", Member.class).getResultList(); // 반환 타입 불명확
+            // 1. Object 형으로 받기
+            // 2. Object[] 타입으로 조회 List<Object>
+            // 제일 깔끔한 마지막 3번째 DTO로 조회하기
+            List<MemberDTO> resultList2 = em.createQuery("select new jpql.MemberDTO(m.username, m.age) from Member m", MemberDTO.class).getResultList(); // 반환 타입 불명확
+            MemberDTO memberDTO = resultList2.get(0);
+            System.out.println(memberDTO.getUserName());
 
             Member member1 = em.createQuery("select m from Member m where m.userName = :username", Member.class)
                     .setParameter("username" , "member1")
                     .getSingleResult();
             System.out.println(member.getUserName());
 
+            tx.commit();
         }catch (Exception e){
             e.printStackTrace();
             tx.rollback();
