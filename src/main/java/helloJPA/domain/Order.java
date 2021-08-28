@@ -22,16 +22,16 @@ public class Order extends BaseEntity{
     @JoinColumn(name = "MEMBER_ID")
     private Customer customer;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderItem> orderItems = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PRODUCT_ID")
+    private Product product;
+
+    @Embedded
+    private Address address;
 
     private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    private void addOrderItem(OrderItem orderItem){
-        orderItem.setOrder(this);
-        this.orderItems.add(orderItem);
-    }
 }

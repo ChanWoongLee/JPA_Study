@@ -6,6 +6,9 @@
         <class>helloJPA.domain.Animal</class>
         <class>helloJPA.domain.Bird</class>
         <class>helloJPA.domain.Member</class>
+        <class>helloJPA.domain.Order</class>
+        <class>helloJPA.domain.Product</class>
+        <class>helloJPA.domain.Address</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>

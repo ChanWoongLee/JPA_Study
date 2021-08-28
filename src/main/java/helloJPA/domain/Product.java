@@ -10,9 +10,9 @@ import javax.persistence.Id;
 @Entity
 @Setter
 @Getter
-public class Item {
+public class Product {
     @Id
-    @Column(name = "ITEM_ID")
+    @Column(name = "PRODUCT_ID")
     private Long id;
     private String names;
     private int price;
