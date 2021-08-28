@@ -2,10 +2,7 @@ package helloJPA;
 
 import helloJPA.domain.Member;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
@@ -18,8 +15,18 @@ public class JPAMain3 {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
+            Member member = new Member();
+            member.setUserName("member1");
+            em.persist(member);
+
+            TypedQuery<Member> query1 = em.createQuery("select m from Member m", Member.class);
+            //Query query2 = em.createQuery("select m.username from Member m", Member.class); // 반환 타입 불명확
 
 
+            Member member1 = em.createQuery("select m from Member m where m.userName = :username", Member.class)
+                    .setParameter("username" , "member1")
+                    .getSingleResult();
+            System.out.println(member.getUserName());
 
         }catch (Exception e){
             e.printStackTrace();

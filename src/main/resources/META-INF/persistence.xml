@@ -9,6 +9,7 @@
         <class>helloJPA.domain.Order</class>
         <class>helloJPA.domain.Product</class>
         <class>helloJPA.domain.Address</class>
+        <class>helloJPA.domain.Customer</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>

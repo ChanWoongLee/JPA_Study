@@ -12,6 +12,7 @@ import java.util.Set;
 
 @Entity
 @Getter
+@Setter
 public class Member extends BaseEntity {
     @Id
     @GeneratedValue
